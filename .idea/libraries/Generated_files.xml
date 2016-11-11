@@ -1,0 +1,35 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/react-0.14.7/examples/jquery-mobile/js/app-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/build/react.min-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/build/react-dom-server.min-compiled.js" />
+        <item url="file://$PROJECT_DIR$/js/react/react-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/build/react-dom-server-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/build/react-with-addons-compiled.js" />
+        <item url="file://$PROJECT_DIR$/js/react/react-dom-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/build/react-with-addons.min-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/build/react-dom.min-compiled.js" />
+        <item url="file://$PROJECT_DIR$/react-0.14.7/examples/shared/thirdparty/webcomponents-compiled.js" />
+        <item url="file://$PROJECT_DIR$/js/react/browser.min-compiled.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/react/react — копия-compiled.js" />
+      <root url="file://$PROJECT_DIR$/js/react/react — копия-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/examples/jquery-mobile/js/app-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/build/react.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/build/react-dom-server.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/js/react/react-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/build/react-dom-server-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/build/react-with-addons-compiled.js" />
+      <root url="file://$PROJECT_DIR$/js/react/react-dom-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/build/react-with-addons.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/build/react-dom.min-compiled.js" />
+      <root url="file://$PROJECT_DIR$/react-0.14.7/examples/shared/thirdparty/webcomponents-compiled.js" />
+      <root url="file://$PROJECT_DIR$/js/react/browser.min-compiled.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
