@@ -41,9 +41,7 @@ class Article extends React.Component {
 
     readMoreClick(){
         // e.preventDefault();
-        this.setState( prevState => ({
-            visible: !prevState.visible
-        }));
+        this.setState( prevState => ({ visible: !prevState.visible }));
     };
 
     render() {
@@ -51,6 +49,8 @@ class Article extends React.Component {
         var text = this.props.data.text;
         var bigText = this.props.data.bigText;
         var visible = this.state.visible;
+
+        console.log("render", this);
 
         return (
             <div className="article">
@@ -74,6 +74,23 @@ Article.propTypes = {
 
 
 class News extends React.Component {
+    constructor(props, context){
+        super(props, context);
+
+        this.state = {
+            counter: 0
+        };
+
+        this.onTotalNewsClick = this.onTotalNewsClick.bind(this);
+
+    };
+
+    onTotalNewsClick() {
+        this.setState({
+            counter: this.state.counter++
+        });
+    };
+
     render() {
         var data = this.props.data;
         var newsTemplate;
@@ -87,13 +104,17 @@ class News extends React.Component {
                 )
             });
         } else {
-            newsTemplate = <p> К сожалению новостей нет</p>
+            newsTemplate = <p>К сожалению новостей нет</p>
         }
 
         return (
             <div className="news">
                 {newsTemplate}
-                <strong className={data.length > 0 ? '' : 'none'}>Всего новостей: {data.length}</strong>
+                <strong
+                    className={"newsCount " +(data.length > 0 ? '' : 'none')}
+                    onClick={this.onTotalNewsClick}>
+                    Всего новостей: {data.length}
+                </strong>
             </div>
         );
     }
@@ -101,6 +122,106 @@ class News extends React.Component {
 
 News.propTypes = {
     data: React.PropTypes.array.isRequired
+};
+
+
+class AddNews extends React.Component{
+
+    constructor(props, context){
+        super(props, context);
+        this.state = {
+            btnIsDisabled: true,
+
+            agreeNotChecked: true,
+            authorNotChecked: true,
+            textIsEmpty: true
+        };
+
+        // this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.onBtnClickHandler = this.onBtnClickHandler.bind(this);
+        this.onCheckRuleClick = this.onCheckRuleClick.bind(this);
+        this.onAuthorChange = this.onAuthorChange.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
+
+    };
+
+    onAuthorChange(e){
+        if(e.target.value.trim().length > 0 ) {
+            this.setState({
+                authorIsEmpty: false
+            })
+        } else {
+            this.setState({
+                authorIsEmpty: true
+            })
+        }
+    };
+
+    onTextChange(e){
+        if(e.target.value.trim().length > 0 ) {
+            this.setState({
+                textIsEmpty: false
+            })
+        } else {
+            this.setState({
+                textIsEmpty: true
+            })
+        }
+    };
+
+
+
+    componentDidMount(){
+        ReactDOM.findDOMNode(this.refs.author).focus();
+    };
+
+    // onChangeHandler(e){
+    //     this.setState({
+    //         myValue: e.target.value
+    //     })
+    // };
+
+    onCheckRuleClick(e){
+        this.setState({
+            btnIsDisabled: !this.state.btnIsDisabled
+        });
+    }
+
+    onBtnClickHandler(e){
+        // console.log(this.refs);
+        // alert(ReactDOM.findDOMNode(this.refs.text).value)
+        e.preventDefault();
+
+        var author = ReactDOM.findDOMNode(this.refs.author).value;
+        var text = ReactDOM.findDOMNode(this.refs.text).value;
+        alert(author + "\n" + text);
+    };
+
+    render(){
+        return(
+            <form className="add cf">
+                <input type="text"
+                       className="addAuthor"
+                       defaultValue={""}
+                       placeholder="Ваше имя"
+                       ref="author" />
+                <textarea className="addText"
+                          defaultValue=""
+                          placeholder="Текст новости"
+                          ref="text" >
+                </textarea>
+                <label className="addCheckRule">
+                    <input type="checkbox" defaultChecked={false} ref="checkRule" onChange={this.onCheckRuleClick}/> Я согласен с правилами
+                </label>
+                <button className="addButton"
+                        onClick={this.onBtnClickHandler}
+                        ref="alertButton"
+                        disabled={this.state.btnIsDisabled} >
+                    Показать alert
+                </button>
+            </form>
+        );
+    };
 };
 
 
@@ -131,7 +252,8 @@ class App extends React.Component{
         return(
             <div className="app">
                 <h3>Новости</h3>
-                <News data={myNews}/> {/*добавили свойство data*/}
+                <AddNews />
+                <News data={myNews} /> {/*добавили свойство data*/}
                 {/*<Comments data={myNews}/>*/}
             </div>
         );
